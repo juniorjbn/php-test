@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "--> Migrando base de dados $DATABASE_USER@$DATABASE_SERVICE_NAME/$DATABASE_NAME"
+sleep 3
+echo '--> Base de dados migrada com sucesso'

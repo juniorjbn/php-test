@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# Arquivo: .s2i/bin/run
+
+# Este script é executado pelo sistema para iniciar o serviço do container.
+# Você pode, por exemplo, baixar alguma dependencia dinâmica, ciar ou remover arquivos,
+# executar scripts para popular cache, etc... ou até mesmo implementar seu próprio "start".
+
+# A linha abaixo executa o script padrão do sistema.
+# Comente-o caso queira implentar seu "start" customizado.
+
+date > started.php
+
+source ${STI_SCRIPTS_PATH}/run
+
+# Os scripts de start padrão podem ser encontrado dentro da própria imagem
+# final no diretório ${STI_SCRIPTS_PATH} ou direto no github oficial de cada imagem:
+#
+# - PHP: https://github.com/sclorg/s2i-php-container e https://github.com/getupcloud/sti-php
+# - NodeJS: https://github.com/sclorg/s2i-nodejs-container e https://github.com/ryanj/origin-s2i-nodejs
+# - Ruby: https://github.com/sclorg/s2i-ruby-container
+# - Python: https://github.com/sclorg/s2i-python-container
+# - Perl: https://github.com/sclorg/s2i-perl-container
+# 
+# Acesse o arquivo de start da versão específica em <repo>/<versao>/s2i/bin/run
