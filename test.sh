@@ -1,5 +1,3 @@
 #!/bin/bash
 
-echo '--> Executando teste'
-
-
+echo '--> Executando teste ao vivo no workshop'

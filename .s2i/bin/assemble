@@ -1,14 +1,14 @@
 #!/bin/bash
 
-if [ -d /tmp/artifacts/ ]; then
-    echo "---> Restoring build artifacts from /tmp/artifacts..."
-    shopt -s dotglob                ### pega arquivos iniciados com .
-    mv -v /tmp/artifacts/* ./
-    shopt -u dotglob
-fi
+# if [ -d /tmp/artifacts/ ]; then
+#     echo "---> Restoring build artifacts from /tmp/artifacts..."
+#     shopt -s dotglob                ### pega arquivos iniciados com .
+#     mv -v /tmp/artifacts/* ./
+#     shopt -u dotglob
+# fi
 
 source ${STI_SCRIPTS_PATH}/assemble   ### executa o assemble original
 
-if [ -x test.sh ]; then
-  ./test.sh
-fi
+# if [ -x test.sh ]; then
+#   ./test.sh
+# fi
