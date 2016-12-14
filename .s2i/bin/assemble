@@ -8,7 +8,7 @@
 # fi
 
 source ${STI_SCRIPTS_PATH}/assemble   ### executa o assemble original
-echo $BUILD
+env
 
 # if [ -x test.sh ]; then
 #   ./test.sh
