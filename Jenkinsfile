@@ -8,7 +8,7 @@ stage 'slack notification'
  node () {
   sh 'git log -1 --pretty=%B > commit-log.txt'                 
   GIT_COMMIT=readFile('commit-log.txt').trim() 
-  slackSend channel: 'codehip', color: '#1e602f', message: "BUILD_INICIADO: PROJETO - ${OPENSHIFT_BUILD_NAME} - ${OPENSHIFT_DEPLOYMENT_NAMESPACE} - :octocat: (${GIT_COMMIT})"
+  slackSend channel: 'codehip', color: '#1e602f', message: "BUILD_INICIADO: PROJETO - ${env.JOB_NAME} - :octocat: (${GIT_COMMIT})"
 }
 
 stage 'STG-Deploy'
