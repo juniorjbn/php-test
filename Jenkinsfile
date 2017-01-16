@@ -8,7 +8,7 @@ stage 'slack notification'
  node () {
   sh 'git log -1 --pretty=%B > commit-log.txt'                 
   GIT_COMMIT=readFile('commit-log.txt').trim() 
-  slackSend channel: 'codehip', color: '#1e602f', message: "BUILD_INICIADO: PROJETO - ${env.JOB_NAME} - :octocat: (${GIT_COMMIT})"
+  slackSend channel: 'codehip', color: '#1e602f', message: ":octocat: - BUILD_INICIADO: PROJETO - ${env.JOB_NAME} - (${GIT_COMMIT})"
 }
 
 stage 'STG-Deploy'
@@ -40,13 +40,23 @@ stage 'QA Check'
 
 stage 'Aprovação'
  node () {
-  slackSend channel: 'codehip', color: '#42e2f4', message: "CTO - Favor aprovar o Build do Projeto - ${env.JOB_NAME}"
+  slackSend channel: 'codehip', color: '#42e2f4', message: ":dusty_stick: - CTO - Favor avaliar o Build do Projeto - ${env.JOB_NAME}"
   input 'Esta versão pode ser promovida para Produção ?'
+}
+
+stage 'Tag to PROD'
+ node () {
+   openshiftTag(srcStream: "phpdev", srcTag: "qaready", destStream: "phpdev", destTag: "prodready")
+ }
+
+stage 'PROD Check'
+ node () {
+  openshiftVerifyDeployment(deploymentConfig: 'phpprod')
 }
 
 stage 'slack notification'
   node () {
    sh 'git log -1 --pretty=%B > commit-log.txt'
    GIT_COMMIT=readFile('commit-log.txt').trim()
-   slackSend channel: 'codehip', color: '#1e602f', message: "BUILD_Terminado: PROJETO - ${env.JOB_NAME} - (${GIT_COMMIT})"
+   slackSend channel: 'codehip', color: '#1e602f', message: ":thumbsup_all: - BUILD_Terminado: PROJETO - ${env.JOB_NAME} - (${GIT_COMMIT})"
 }
