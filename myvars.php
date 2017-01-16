@@ -1,4 +1,4 @@
 <?php
-$var_name = $_GET["variavel"];
-echo "Env var $var_name is '" . getenv($var_name) . "'\n";
+$var_name = $_GET["AMBIENTE"];
+echo "Este é o $var_name de '" . getenv($var_name) . "'\n";
 ?>
