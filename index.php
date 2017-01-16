@@ -1,13 +1,17 @@
 <html>
 <head>
-    <title>Hello Kubernetes</title>
+    <title>Hello Kubernetes and Openshift</title> 
 </head>
 <body>
 
-<h1>Demo App</h1>
+<h1>PHP Demo App</h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
+</p>
+
+<p>
+    <a href=myvars.php>AMBIENTE</a>
 </p>
 
 <p>
