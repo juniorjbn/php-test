@@ -41,7 +41,12 @@ stage 'QA Check'
 stage 'Aprovação'
  node () {
   slackSend channel: 'codehip', color: '#42e2f4', message: ":dusty_stick: - CTO - Favor avaliar o Build do Projeto - ${env.JOB_NAME} - http://jenkins-meu-teste.getup.io/blue/organizations/jenkins/${env.JOB_NAME}/detail/${env.JOB_NAME}/${env.BUILD_NUMBER}/pipeline/ "
-  input message: 'Esta versão pode ser promovida para Produção ?', submitter: 'juniorjbn'
+  try {
+    input message: 'Esta versão pode ser promovida para Produção ?', submitter: 'juniorjbn'
+  } catch(err) {
+    slackSend channel: 'codehip', color: '#d80f41', message: ":finnadie: - Build (${env.BUILD_NUMBER}) do Projeto - ${env.JOB_NAME} - ABORTADO em QA "
+  }
+  
 }
 
 stage 'Tag to PROD'
