@@ -2,7 +2,6 @@
 
 $myvar = getenv('variavel');
 
-// print $myvar
-print_r("myvar");
+Echo "Sua Variável é -> " . $myvar;
 
 ?>
