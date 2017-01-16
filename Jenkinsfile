@@ -40,7 +40,7 @@ stage 'QA Check'
 
 stage 'Aprovação'
  node () {
-  slackSend channel: 'codehip', color: '#42e2f4', message: ":dusty_stick: - CTO - Favor avaliar o Build do Projeto - ${env.JOB_NAME} - http://jenkins-meu-teste.getup.io/blue/organizations/jenkins/meu-teste/detail/meu-teste/${env.BUILD_NUMBER}/pipeline/ "
+  slackSend channel: 'codehip', color: '#42e2f4', message: ":dusty_stick: - CTO - Favor avaliar o Build do Projeto - ${env.JOB_NAME} - http://jenkins-meu-teste.getup.io/blue/organizations/jenkins/${env.JOB_NAME}/detail/${env.JOB_NAME}/${env.BUILD_NUMBER}/pipeline/ "
   input 'Esta versão pode ser promovida para Produção ?'
 }
 
@@ -58,5 +58,5 @@ stage 'slack notification'
   node () {
    sh 'git log -1 --pretty=%B > commit-log.txt'
    GIT_COMMIT=readFile('commit-log.txt').trim()
-   slackSend channel: 'codehip', color: '#1e602f', message: ":thumbsup_all: - BUILD_Terminado: PROJETO - ${env.JOB_NAME} - (${GIT_COMMIT})"
+   slackSend channel: 'codehip', color: '#1e602f', message: ":thumbsup_all: - Atualização aprovada para PRODUÇÃO: PROJETO - ${env.JOB_NAME} - Build Number - ${env.BUILD_NUMBER} - (${GIT_COMMIT})"
 }
