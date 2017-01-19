@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Alo! Kubernetes and Openshift</title> 
+    <title>Alo westcom and Openshift</title> 
 </head>
 <body>
 
