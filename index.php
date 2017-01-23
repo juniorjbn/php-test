@@ -1,10 +1,10 @@
 <html>
 <head>
-    <title>Alo westcom and Openshift</title> 
+    <title>Alo Mundo</title> 
 </head>
 <body>
 
-<h1>PHP Demo Aplication</h1>
+<h1>PHP Demo Application</h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
