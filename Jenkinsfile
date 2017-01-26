@@ -6,16 +6,10 @@ stage 'Checkout'
 
 stage 'STG-Deploy'
  node () {
-  openshiftBuild(buildConfig: 'phpdev2', showBuildLogs: 'true') 
-}
-
-
-stage 'STG-Deploy'
- node () {
    try{
-     timeout(time: 6, unit: 'SECONDS') {
-       openshiftVerifyBuild(buildConfig: 'phpdev2') 
-     } 
+     
+       openshiftBuild(buildConfig: 'phpdev2', showBuildLogs: 'true') 
+      
    } catch  (err) {
        sh 'git log -1 --pretty=%B > commit-log.txt'
        GIT_COMMIT=readFile('commit-log.txt').trim()
