@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Alo Mundo</title> 
+    <title>Hello PHP + Openhift</title> 
 </head>
 <body>
 
