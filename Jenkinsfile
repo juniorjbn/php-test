@@ -9,7 +9,7 @@ stage 'Slack Notification'
   GIT_COMMIT=readFile('commit-log.txt').trim()
   slackSend channel: 'integrationtests', color: '#1e602f', message: ":octocat: - BUILD_STARTED: PROJECT - ${env.JOB_NAME} - (${GIT_COMMIT})"
 }
-stage 'DEV-Build'
+stage 'DEV Build'
  node () {
   openshiftBuild(buildConfig: 'phpdev', showBuildLogs: 'true')
 }
@@ -18,30 +18,30 @@ stage 'DEV Check'
   openshiftVerifyBuild(buildConfig: 'phpdev')
 }
 pipeline {
-    agent none
-    stages {
-        stage("Distributed Tests") {
-            steps {
-                parallel (
-                    "Firefox" : {
-                        node('master') {
-                            sh "echo from Firefox"
-                        }
-                    },
-                    "Chrome" : {
-                        node('master') {
-                            sh "echo from Chrome"
-                        }
-                    },
-                    "IE6 :)" : {
-                        node('master') {
-                            sh "echo from IE6"
-                        }
-                    }
-                )
+  agent none
+  stages {
+    stage("Distributed Tests") {
+      steps {
+        parallel (
+          "Firefox" : {
+            node('master') {
+              sh "echo from Firefox"
             }
-        }
+          },
+          "Chrome" : {
+            node('master') {
+              sh "echo from Chrome"
+            }
+          },
+          "IE6 :)" : {
+            node('master') {
+              sh "echo from IE6"
+            }
+          }
+        )
+      }
     }
+  }
 }
 stage 'Promote to QA'
  node () {
