@@ -5,17 +5,17 @@ stage 'Checkout'
 }
 stage 'slack notification'
  node () {
-  sh 'git log -1 --pretty=%B > commit-log.txt'                 
-  GIT_COMMIT=readFile('commit-log.txt').trim() 
+  sh 'git log -1 --pretty=%B > commit-log.txt'
+  GIT_COMMIT=readFile('commit-log.txt').trim()
   slackSend channel: 'integrationtests', color: '#1e602f', message: ":octocat: - BUILD_STARTED: PROJECT - ${env.JOB_NAME} - (${GIT_COMMIT})"
 }
 stage 'STG-Deploy'
  node () {
-  openshiftBuild(buildConfig: 'phpdev', showBuildLogs: 'true') 
+  openshiftBuild(buildConfig: 'phpdev', showBuildLogs: 'true')
 }
 stage 'STG-Check'
  node () {
-  openshiftVerifyBuild(buildConfig: 'phpdev') 
+  openshiftVerifyBuild(buildConfig: 'phpdev')
 }
 stage 'Tests'
  node () {
@@ -63,6 +63,6 @@ stage("test") {
                 sh "echo testing Chrome"
                 sh "echo more steps"
             }
-        }
-    )
+        )
+    }
 }
