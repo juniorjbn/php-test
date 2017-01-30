@@ -51,7 +51,8 @@ stage 'QA Check'
  node () {
   openshiftVerifyDeployment(deploymentConfig: 'phpqa')
 }
-stage 'Approval' {
+stage 'Approval'
+ node () {
   slackSend channel: 'integrationtests', color: '#42e2f4', message: ":dusty_stick: - CTO - Please evaluate the Project - ${env.JOB_NAME} - http://jenkins-meu-teste.getup.io/blue/organizations/jenkins/${env.JOB_NAME}/detail/${env.JOB_NAME}/${env.BUILD_NUMBER}/pipeline/ "
   try {
     input message: 'Are this version ready for Production ?', submitter: 'juniorjbn'
