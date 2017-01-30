@@ -18,7 +18,6 @@ stage 'STG-Check'
   openshiftVerifyBuild(buildConfig: 'phpdev')
 }
 pipeline {
-    agent none
     stages {
         stage("Distributed Tests") {
             steps {
