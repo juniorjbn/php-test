@@ -3,17 +3,17 @@ stage 'Checkout'
   deleteDir()
   checkout scm
 }
-stage 'slack notification'
+stage 'Slack Notification'
  node () {
   sh 'git log -1 --pretty=%B > commit-log.txt'
   GIT_COMMIT=readFile('commit-log.txt').trim()
   slackSend channel: 'integrationtests', color: '#1e602f', message: ":octocat: - BUILD_STARTED: PROJECT - ${env.JOB_NAME} - (${GIT_COMMIT})"
 }
-stage 'STG-Deploy'
+stage 'DEV-Build'
  node () {
   openshiftBuild(buildConfig: 'phpdev', showBuildLogs: 'true')
 }
-stage 'STG-Check'
+stage 'DEV Check'
  node () {
   openshiftVerifyBuild(buildConfig: 'phpdev')
 }
@@ -23,19 +23,19 @@ pipeline {
         stage("Distributed Tests") {
             steps {
                 parallel (
-                    "windows" : {
+                    "Firefox" : {
                         node('master') {
-                            sh "echo from Windows"
+                            sh "echo from Firefox"
                         }
                     },
-                    "mac" : {
+                    "Chrome" : {
                         node('master') {
-                            sh "echo from mac"
+                            sh "echo from Chrome"
                         }
                     },
-                    "linux" : {
+                    "IE6 :)" : {
                         node('master') {
-                            sh "echo from linux"
+                            sh "echo from IE6"
                         }
                     }
                 )
@@ -43,7 +43,7 @@ pipeline {
         }
     }
 }
-stage 'Tag to QA'
+stage 'Promote to QA'
  node () {
    openshiftTag(srcStream: "phpdev", srcTag: "latest", destStream: "phpdev", destTag: "qaready")
 }
@@ -60,7 +60,7 @@ stage 'Approval'
     slackSend channel: 'integrationtests', color: '#d80f41', message: ":finnadie: - Build (${env.BUILD_NUMBER}) from Project - ${env.JOB_NAME} - ABORTED in QA "
   }
 }
-stage 'Tag to PROD'
+stage 'Promote to PROD'
  node () {
    openshiftTag(srcStream: "phpdev", srcTag: "qaready", destStream: "phpdev", destTag: "prodready")
 }
@@ -68,7 +68,7 @@ stage 'PROD Check'
  node () {
   openshiftVerifyDeployment(deploymentConfig: 'phpprod')
 }
-stage 'slack notification'
+stage 'Slack Notification'
   node () {
    sh 'git log -1 --pretty=%B > commit-log.txt'
    GIT_COMMIT=readFile('commit-log.txt').trim()
