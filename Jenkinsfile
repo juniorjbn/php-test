@@ -73,8 +73,8 @@ pipeline {
                             sh "echo from linux"
                         }
                     }
-                }
-            )
+                )
+            }
         }
     }
 }
