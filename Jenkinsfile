@@ -17,9 +17,31 @@ stage 'STG-Check'
  node () {
   openshiftVerifyBuild(buildConfig: 'phpdev')
 }
-stage 'Tests'
- node () {
-  sh 'echo Testing before promote to QA'
+pipeline {
+    agent none
+    stages {
+        stage("Distributed Tests") {
+            steps {
+                parallel (
+                    "windows" : {
+                        node() {
+                            sh "echo from Windows"
+                        }
+                    },
+                    "mac" : {
+                        node() {
+                            sh "echo from mac"
+                        }
+                    },
+                    "linux" : {
+                        node() {
+                            sh "echo from linux"
+                        }
+                    }
+                )
+            }
+        }
+    }
 }
 stage 'Tag to QA'
  node () {
@@ -52,27 +74,3 @@ stage 'slack notification'
    GIT_COMMIT=readFile('commit-log.txt').trim()
    slackSend channel: 'integrationtests', color: '#1e602f', message: ":thumbsup_all: - UPDATE approved to production: PROJECT - ${env.JOB_NAME} - Build Number - ${env.BUILD_NUMBER} - (${GIT_COMMIT})"
 }
-
-    stages {
-        stage("Distributed Tests") {
-            steps {
-                parallel (
-                    "windows" : {
-                        node() {
-                            sh "echo from Windows"
-                        }
-                    },
-                    "mac" : {
-                        node() {
-                            sh "echo from mac"
-                        }
-                    },
-                    "linux" : {
-                        node() {
-                            sh "echo from linux"
-                        }
-                    }
-                )
-            }
-        }
-    }
