@@ -18,18 +18,25 @@ stage 'STG-Check'
   openshiftVerifyBuild(buildConfig: 'phpdev')
 }
 pipeline {
+    agent none
     stages {
         stage("Distributed Tests") {
             steps {
                 parallel (
                     "windows" : {
+                        node('master') {
                             sh "echo from Windows"
+                        }
                     },
                     "mac" : {
+                        node('master') {
                             sh "echo from mac"
+                        }
                     },
                     "linux" : {
+                        node('master') {
                             sh "echo from linux"
+                        }
                     }
                 )
             }
