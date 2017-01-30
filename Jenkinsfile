@@ -24,19 +24,13 @@ pipeline {
             steps {
                 parallel (
                     "windows" : {
-                        node() {
                             sh "echo from Windows"
-                        }
                     },
                     "mac" : {
-                        node() {
                             sh "echo from mac"
-                        }
                     },
                     "linux" : {
-                        node() {
                             sh "echo from linux"
-                        }
                     }
                 )
             }
