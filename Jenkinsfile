@@ -52,3 +52,17 @@ stage 'slack notification'
    GIT_COMMIT=readFile('commit-log.txt').trim()
    slackSend channel: 'integrationtests', color: '#1e602f', message: ":thumbsup_all: - UPDATE approved to production: PROJECT - ${env.JOB_NAME} - Build Number - ${env.BUILD_NUMBER} - (${GIT_COMMIT})"
 }
+stage("test") {
+    steps {
+        parallel (
+            "Firefox" : {
+                sh "echo testing FFX"
+                sh "echo more steps"
+            },
+            "Chrome" : {
+                sh "echo testing Chrome"
+                sh "echo more steps"
+            }
+        }
+    )
+}
