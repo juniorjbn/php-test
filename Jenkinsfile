@@ -52,24 +52,23 @@ stage 'slack notification'
    GIT_COMMIT=readFile('commit-log.txt').trim()
    slackSend channel: 'integrationtests', color: '#1e602f', message: ":thumbsup_all: - UPDATE approved to production: PROJECT - ${env.JOB_NAME} - Build Number - ${env.BUILD_NUMBER} - (${GIT_COMMIT})"
 }
-pipeline {
-    agent none
+
     stages {
-        stage("distribute") {
+        stage("Distributed Tests") {
             steps {
                 parallel (
                     "windows" : {
-                        node('windows') {
-                            bat "print from windows"
+                        node() {
+                            sh "echo from Windows"
                         }
                     },
                     "mac" : {
-                        node('osx') {
+                        node() {
                             sh "echo from mac"
                         }
                     },
                     "linux" : {
-                        node('linux') {
+                        node() {
                             sh "echo from linux"
                         }
                     }
@@ -77,4 +76,3 @@ pipeline {
             }
         }
     }
-}
