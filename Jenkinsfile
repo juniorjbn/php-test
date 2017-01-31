@@ -7,13 +7,13 @@ stage 'Checkout'
 stage 'STG-Deploy'
  node () {
    try{
-     timeout(time: 300, unit: 'SECONDS') {
+     timeout(time: 3, unit: 'SECONDS') {
        openshiftBuild(buildConfig: 'monitor', showBuildLogs: 'true') 
      } 
    } catch  (err) {
        sh 'git log -1 --pretty=%B > commit-log.txt'
        GIT_COMMIT=readFile('commit-log.txt').trim()
-       slackSend channel: 'integrationtests', color: '#ce061a', message: ":squirrel: - Falha no Build - Verificar manualmente se o master não está travado"
+       slackSend channel: 'integrationtests', color: '#ce061a', message: "/pd_incident Falha no Build - Verificar manualmente se o master não está travado"
    }
      
 }
