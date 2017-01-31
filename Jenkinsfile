@@ -7,7 +7,7 @@ stage 'Checkout'
 stage 'STG-Deploy'
  node () {
    try{
-     timeout(time: 3, unit: 'SECONDS') {
+     timeout(time: 300, unit: 'SECONDS') {
        openshiftBuild(buildConfig: 'monitor', showBuildLogs: 'true') 
      } 
    } catch  (err) {
