@@ -8,7 +8,7 @@ stage 'STG-Deploy'
  node () {
    try{
      timeout(time: 300, unit: 'SECONDS') {
-       openshiftBuild(buildConfig: 'phpdev2', showBuildLogs: 'true') 
+       openshiftBuild(buildConfig: 'monitor', showBuildLogs: 'true') 
      } 
    } catch  (err) {
        sh 'git log -1 --pretty=%B > commit-log.txt'
