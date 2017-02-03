@@ -1,25 +1,18 @@
 <?php
-$dbhost = "getenv('MYSQL_HOSTNAME'):3306";
-$dbuser = "getenv('MYSQL_USER')";
-$dbpass = "getenv('MYSQL_PASSWORD')";
-$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-if(! $conn )
-{
-  die('Falha na Conexão com o Banco de dados: ' . mysql_error());
-}
-$sql = 'SELECT my FROM status';
+$mysqli = new mysqli("mysql:3306", "joao", "4w2t7ovn1eM5t6WT", "test_db");
 
-mysql_select_db('test_db');
-$retval = mysql_query( $sql, $conn );
-if(! $retval )
-{
-  die('Could not get data: ' . mysql_error());
+/* check connection */
+if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
 }
-while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
-{
-    echo "Connection Status: {$row['my']}  <br> ".
-         "--------------------------------<br>";
-} 
-echo "Fetched data successfully\n";
-mysql_close($conn);
+
+/* return name of current default database */
+if ($result = $mysqli->query("SELECT my FROM status")) {
+    $row = $result->fetch_row();
+    printf("Connection to Mysql status : %s\n", $row[0]);
+    $result->close();
+}
+
+$mysqli->close();
 ?>
