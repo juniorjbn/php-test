@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Hello PHP + Kubernetes & Openhift</title> 
+    <title>Hello Kubernetes & Openhift</title> 
 </head>
 <body>
 
