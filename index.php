@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Kubernetes Openhift</title> 
+    <title>Kubernetes</title> 
 </head>
 <body>
 
