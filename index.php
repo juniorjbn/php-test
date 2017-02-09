@@ -1,10 +1,10 @@
 <html>
 <head>
-    <title>Kubernetes</title> 
+    <title>Kubernetes is awesome</title> 
 </head>
 <body>
 
-<h1>Demo PHP Application</h1>
+<h1>PHP Application isn't so bad - choose what fits you better</h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
