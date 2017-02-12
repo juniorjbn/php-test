@@ -9,6 +9,6 @@
 
 source ${STI_SCRIPTS_PATH}/assemble   ### executa o assemble original
 
-# if [ -x test.sh ]; then
-#   ./test.sh
-# fi
+if [ -x test.sh ]; then
+  ./test.sh
+fi
