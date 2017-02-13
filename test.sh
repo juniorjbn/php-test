@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo `date` > started.php
+echo  "This is a build command!"

@@ -9,7 +9,7 @@
 # A linha abaixo executa o script padrão do sistema.
 # Comente-o caso queira implentar seu "start" customizado.
 
-#####date > started.php
+#date > started.php
 
 source ${STI_SCRIPTS_PATH}/run
 
