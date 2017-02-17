@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf ~/.git
+
 # if [ -d /tmp/artifacts/ ]; then
 #     echo "---> Restoring build artifacts from /tmp/artifacts..."
 #     shopt -s dotglob                ### pega arquivos iniciados com .
