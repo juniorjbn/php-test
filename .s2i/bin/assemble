@@ -1,7 +1,5 @@
 #!/bin/bash
 
-rm -rf ~/.git
-
 # if [ -d /tmp/artifacts/ ]; then
 #     echo "---> Restoring build artifacts from /tmp/artifacts..."
 #     shopt -s dotglob                ### pega arquivos iniciados com .
@@ -10,6 +8,8 @@ rm -rf ~/.git
 # fi
 
 source ${STI_SCRIPTS_PATH}/assemble   ### executa o assemble original
+
+rm -rf ~/.git
 
 if [ -x test.sh ]; then
   ./test.sh
