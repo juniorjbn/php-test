@@ -9,6 +9,8 @@
 
 source ${STI_SCRIPTS_PATH}/assemble   ### executa o assemble original
 
+rm -rf ~/.git
+
 if [ -x test.sh ]; then
   ./test.sh
 fi
