@@ -43,7 +43,7 @@
 </p>
 
 <hr>
-Version: <a href="version.php"><?php include 'version.php'; ?></a>
+Version: 1
 
 </body>
 </html>
