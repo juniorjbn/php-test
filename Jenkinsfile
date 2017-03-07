@@ -7,11 +7,11 @@ stage 'Checkout'
 stage 'STG-Deploy'
  node () {
    try{
-     timeout(time: 300, unit: 'SECONDS') {
+     timeout(time: 3, unit: 'SECONDS') {
        openshiftBuild(buildConfig: 'monitor', showBuildLogs: 'true') 
      } 
    } catch  (err) {
-       sh 'curl -H "Content-Type: application/json" -X POST -d \'{"service_key": "605bc544b020499a959e684ecf3ba1e2","event_type": "trigger","description": "Falha ao Gerar Build - Cluster do Cliente X - Verificar manualmente se o master está travado"}\' https://events.pagerduty.com/generic/2010-04-15/create_event.json'
+       sh 'curl -H "Content-Type: application/json" -X POST -d \'{"service_key": "605bc544b020499a959e684ecf3ba1e2","event_type": "trigger","description": "Falha ao Gerar Build - Cluster do Cliente ${OPENSHIFT_BUILD_NAME} - Verificar manualmente se o master está travado"}\' https://events.pagerduty.com/generic/2010-04-15/create_event.json'
    }
      
 }
