@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Kubernetes is invisible infrastructure!</title> 
+    <title>Kubernetes is awesome!</title> 
 </head>
 <body>
 
