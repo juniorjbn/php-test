@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<h1>PHP isn't so bad!! </h1>
+<h1>Server and infrastructure as a single cluster, simplifying the container management! </h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
