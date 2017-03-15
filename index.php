@@ -1,10 +1,10 @@
 <html>
 <head>
-    <title>Kubernetes is awesome!</title> 
+    <title>Kubernetes is invisible infrastructure!</title> 
 </head>
 <body>
 
-<h1>Server and infrastructure as a single cluster, simplifying the container management! </h1>
+<h1>Server and infrastructure as a single cluster, simplifying the container management!</h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
