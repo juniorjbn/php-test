@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Powerful and Invisible infrastructure!</title> 
+    <title>Invisible infrastructure!</title> 
 </head>
 <body>
 
