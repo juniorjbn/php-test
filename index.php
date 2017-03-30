@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>(GETUP) Invisible infrastructure!</title> 
+    <title>Invisible infrastructure!</title> 
 </head>
 <body>
 
