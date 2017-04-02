@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli("galera:3306", "user", "vEYRj2BgpQhh", "userdb");
+$mysqli = new mysqli("galerinha:3306", "user", "vEYRj2BgpQhh", "userdb");
 
 /* check connection */
 if (mysqli_connect_errno()) {
