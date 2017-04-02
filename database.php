@@ -8,7 +8,7 @@ if (mysqli_connect_errno()) {
 }
 
 /* return name of current default database */
-if ($result = $mysqli->query("SELECT my FROM status")) {
+if ($result = $mysqli->query("SELECT estado FROM status")) {
     $row = $result->fetch_row();
     printf("Connection to Mysql status : %s\n", $row[0]);
     $result->close();
