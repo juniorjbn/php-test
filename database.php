@@ -10,7 +10,7 @@ if (mysqli_connect_errno()) {
 /* return name of current default database */
 if ($result = $mysqli->query("SHOW STATUS LIKE 'wsrep_cluster_size'")) {
     $row = $result->fetch_row();
-    printf("Number of Cluster Replicas : %s\n", $row[0]);
+    printf("Number of Cluster Replicas : %s\n", $row[1]);
     $result->close();
 }
 
