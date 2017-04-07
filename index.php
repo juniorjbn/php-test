@@ -1,10 +1,10 @@
 <html>
 <head>
-    <title> Invisible infrastructure!</title> 
+    <title>Invisible infrastructure!</title> 
 </head>
 <body>
 
-<h1>Meu Teste PHP</h1>
+<h1>Apenas um Teste!</h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
