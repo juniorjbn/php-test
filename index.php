@@ -1,10 +1,10 @@
 <html>
 <head>
-    <title>Sul America!</title> 
+    <title>TripleS!</title> 
 </head>
 <body>
 
-<h1>Invisible Infrastructure!</h1>
+<h1>Triple S - Invisible Infrastructure!</h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
