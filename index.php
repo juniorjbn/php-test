@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>TripleS!</title> 
+    <title>Novo Title!</title> 
 </head>
 <body>
 
