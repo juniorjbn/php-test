@@ -1,10 +1,10 @@
 <html>
 <head>
-    <title>Novo Title!</title> 
+    <title>Kubernetes!</title> 
 </head>
 <body>
 
-<h1>Triple S - Invisible Infrastructure!</h1>
+<h1>NewSpace - Invisible Infrastructure!</h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
