@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<h1>TimeHi - Invisible Infrastructure!</h1>
+<h1>Accenture - Invisible Infrastructure!</h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
