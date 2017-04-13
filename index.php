@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Kubernetes!</title> 
+    <title>Openshift!</title> 
 </head>
 <body>
 
