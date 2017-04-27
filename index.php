@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Openshift!</title> 
+    <title>Continuous Delivery Pipeline!</title> 
 </head>
 <body>
 
