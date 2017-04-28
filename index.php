@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<h1>Accenture - Invisible Infrastructure!</h1>
+<h1>Westcon - Invisible Infrastructure!</h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
