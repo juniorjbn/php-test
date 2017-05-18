@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<h1>DAN - Invisible Infrastructure!</h1>
+<h1>Invisible Infrastructure!</h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
