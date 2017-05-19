@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<h1>TecBan - Invisible Infrastructure!</h1>
+<h1>Algar - Invisible Infrastructure!</h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
