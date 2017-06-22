@@ -7,7 +7,7 @@ stage 'Slack Notification'
  node () {
   sh 'git log -1 --pretty=%B > commit-log.txt'
   GIT_COMMIT=readFile('commit-log.txt').trim()
-  slackSend channel: 'integrationtests', color: '#1e602f', message: ":octocat: - BUILD_STARTED: PROJECT - ${env.JOB_NAME} - (${GIT_COMMIT})"
+  slackSend channel: 'ci-cd', color: '#1e602f', message: ":octocat: - BUILD_STARTED: PROJECT - ${env.JOB_NAME} - (${GIT_COMMIT})"
 }
 stage 'DEV Build'
  node () {
@@ -53,11 +53,11 @@ stage 'QA Check'
 }
 stage 'Approval'
  node () {
-  slackSend channel: 'integrationtests', color: '#42e2f4', message: ":dusty_stick: - CTO - Please evaluate the Project - ${env.JOB_NAME} - http://jenkins-meu-teste.getup.io/blue/organizations/jenkins/${env.JOB_NAME}/detail/${env.JOB_NAME}/${env.BUILD_NUMBER}/pipeline/ "
+  slackSend channel: 'ci-cd', color: '#42e2f4', message: ":dusty_stick: - CTO - Please evaluate the Project - ${env.JOB_NAME} - http://jenkins-meu-teste.getup.io/blue/organizations/jenkins/${env.JOB_NAME}/detail/${env.JOB_NAME}/${env.BUILD_NUMBER}/pipeline/ "
   try {
     input message: 'Are this version ready for Production ?', submitter: 'juniorjbn'
   } catch(err) {
-    slackSend channel: 'integrationtests', color: '#d80f41', message: ":finnadie: - Build (${env.BUILD_NUMBER}) from Project - ${env.JOB_NAME} - ABORTED in QA "
+    slackSend channel: 'ci-cd', color: '#d80f41', message: ":finnadie: - Build (${env.BUILD_NUMBER}) from Project - ${env.JOB_NAME} - ABORTED in QA "
   }
 }
 stage 'Promote to PROD'
@@ -72,5 +72,5 @@ stage 'Slack Notification'
   node () {
    sh 'git log -1 --pretty=%B > commit-log.txt'
    GIT_COMMIT=readFile('commit-log.txt').trim()
-   slackSend channel: 'integrationtests', color: '#1e602f', message: ":thumbsup_all: - UPDATE approved to production: PROJECT - ${env.JOB_NAME} - Build Number - ${env.BUILD_NUMBER} - (${GIT_COMMIT})"
+   slackSend channel: 'ci-cd', color: '#1e602f', message: ":thumbsup_all: - UPDATE approved to production: PROJECT - ${env.JOB_NAME} - Build Number - ${env.BUILD_NUMBER} - (${GIT_COMMIT})"
 }
