@@ -44,6 +44,9 @@
 
 <hr>
 Version: 1
+<hr>
+
+<center><img src="AstroROSAAlfa.png" alt="logo" height="228" width="228"></center>
 
 </body>
 </html>
