@@ -58,6 +58,7 @@ stage 'Approval'
     input message: 'Are this version ready for Production ?', submitter: 'juniorjbn'
   } catch(err) {
     slackSend channel: 'ci-cd', color: '#d80f41', message: ":finnadie: - Build (${env.BUILD_NUMBER}) from Project - ${env.JOB_NAME} - ABORTED in QA "
+    error ("aqui foi abortado")
   }
 }
 stage 'Promote to PROD'
