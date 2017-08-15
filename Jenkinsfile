@@ -65,10 +65,6 @@ stage 'Promote to PROD'
  node () {
    openshiftTag(srcStream: "phpdev", srcTag: "qaready", destStream: "phpdev", destTag: "prodready")
 }
-stage 'PROD Check'
- node () {
-  openshiftVerifyDeployment(deploymentConfig: 'phpprod')
-}
 stage 'Slack Notification'
   node () {
    sh 'git log -1 --pretty=%B > commit-log.txt'
