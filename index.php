@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<h1>Meetup LinuxTips - GOOOO!!!!</h1>
+<h1>Meetup LinuxTips - GO!!!!</h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
