@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<h1>Meetup LinuxTips - GO!!!!</h1>
+<h1>Automated CI/CD Pipeline</h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
