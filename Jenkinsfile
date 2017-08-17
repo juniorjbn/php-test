@@ -15,7 +15,7 @@ stage 'DEV Build'
 }
 stage 'DEV Check'
  node () {
-  openshiftVerifyDeployment(deploymentConfig: 'phpdev', waitTime: '60', waitUnit: 'sec')
+  openshiftVerifyDeployment(deploymentConfig: 'phpdev', waitTime: '120', waitUnit: 'sec')
 }
 pipeline {
   agent none
@@ -49,7 +49,7 @@ stage 'Promote to QA'
 }
 stage 'QA Check'
  node () {
-  openshiftVerifyDeployment(deploymentConfig: 'phpqa', waitTime: '60', waitUnit: 'sec')
+  openshiftVerifyDeployment(deploymentConfig: 'phpqa', waitTime: '120', waitUnit: 'sec')
 }
 stage 'Approval'
  node () {
