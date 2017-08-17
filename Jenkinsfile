@@ -15,7 +15,7 @@ stage 'DEV Build'
 }
 stage 'DEV Check'
  node () {
-  openshiftVerifyDeployment(deploymentConfig: 'phpdev')
+  openshiftVerifyDeployment(deploymentConfig: 'phpdev', waitTime: '600', waitUnit: 'sec')
 }
 pipeline {
   agent none
@@ -49,7 +49,7 @@ stage 'Promote to QA'
 }
 stage 'QA Check'
  node () {
-  openshiftVerifyDeployment(deploymentConfig: 'phpqa')
+  openshiftVerifyDeployment(deploymentConfig: 'phpqa', waitTime: '600', waitUnit: 'sec')
 }
 stage 'Approval'
  node () {
@@ -67,7 +67,7 @@ stage 'Promote to PROD'
 }
 stage 'PROD Check'
  node () {
-  openshiftVerifyDeployment(deploymentConfig: 'phpprod')
+  openshiftVerifyDeployment(deploymentConfig: 'phpprod', waitTime: '600', waitUnit: 'sec')
 }
 stage 'Slack Notification'
   node () {
