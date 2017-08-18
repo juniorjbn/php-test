@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<h1>Automated CI/CD Pipeline</h1>
+<h1>Automated CI/CD Pipeline V2</h1>
 
 <p>
     <a href=phpinfo.php>phpinfo</a>
