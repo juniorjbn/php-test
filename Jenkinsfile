@@ -55,7 +55,7 @@ stage 'Approval'
  node () {
   slackSend channel: 'ci-cd', color: '#42e2f4', message: ":dusty_stick: - CTO - Please evaluate the Project - ${env.JOB_NAME} - http://jenkins-meu-teste.getup.io/blue/organizations/jenkins/${env.JOB_NAME}/detail/${env.JOB_NAME}/${env.BUILD_NUMBER}/pipeline/ "
   try {
-    input message: 'Are this version ready for Production ?', submitter: 'juniorjbn'
+    input message: 'Are this version ready for Production ?', id: 'input1', submitter: 'juniorjbn'
   } catch(err) {
     slackSend channel: 'ci-cd', color: '#d80f41', message: ":finnadie: - Build (${env.BUILD_NUMBER}) from Project - ${env.JOB_NAME} - ABORTED in QA "
     error ("aqui foi abortado")
