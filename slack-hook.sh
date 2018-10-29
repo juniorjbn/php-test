@@ -22,7 +22,7 @@ cat > /tmp/slack_text <<EOF
             "actions": [
                 {
                     "name": "approval",
-                    "text": "Aprove",
+                    "text": "Approve",
                     "type": "button",
                     "value": "${BUILD_NUMBER}"
                 },
