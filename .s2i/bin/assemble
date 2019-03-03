@@ -11,6 +11,9 @@ source ${STI_SCRIPTS_PATH}/assemble   ### executa o assemble original
 
 rm -rf ~/.git
 
+mkdir /var/cache/mod_pagespeed
+
+
 if [ -x test.sh ]; then
   ./test.sh
 fi
