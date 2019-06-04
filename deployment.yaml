@@ -1,0 +1,52 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: php
+  namespace: teste
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: php
+    spec:
+      containers:
+      - env:
+        - name: AMBIENTE
+          valueFrom:
+            configMapKeyRef:
+              key: chave
+              name: variavel
+        image: docker.io/juniorjbn/php-test:001
+        imagePullPolicy: Always
+        livenessProbe:
+          exec:
+            command:
+            - ./testa.sh
+          failureThreshold: 3
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        name: php
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /health.php
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        resources:
+          limits:
+            cpu: 731m
+            memory: 1Gi
+          requests:
+            cpu: 18m
+            memory: 256Mi
+
