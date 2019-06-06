@@ -2,9 +2,9 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: php
-  namespace: teste
+  namespace: teste2
 spec:
-  replicas: 1
+  replicas: 5
   template:
     metadata:
       labels:
