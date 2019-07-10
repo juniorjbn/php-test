@@ -39,5 +39,5 @@ cat > /tmp/slack_text <<EOF
 EOF
 
 curl -X POST -H 'Content-type: application/json' \
-https://hooks.slack.com/services/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 \
+https://hooks.slack.com/services/<token> \
 --data @/tmp/slack_text
