@@ -10,5 +10,5 @@
 
 
 curl -X POST -H 'Content-type: application/json' \
-https://hooks.slack.com/services/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 \
+https://hooks.slack.com/services/T02PZ17DQ/<token> \
 --data "{\"text\": \"Please review job ${BUILD_NUMBER}\",\"attachments\": [{\"fallback\": \"You does not have permissions to approve\",\"callback_id\": \"jenkins_approval\",\"color\": \"#3AA3E3\",\"attachment_type\": \"default\",\"actions\": [{\"name\": \"approval\",\"text\": \"Aprove\",\"type\": \"button\",\"value\": \"${BUILD_NUMBER}\"},{\"name\": \"approval\",\"text\": \"Decline\",\"type\": \"button\",\"value\": \"${BUILD_NUMBER}\"}]}]}"
